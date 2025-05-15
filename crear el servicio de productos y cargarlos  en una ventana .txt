@@ -1,0 +1,83 @@
+Clase numero dos 
+
+04/04/25
+ 
+Se crea la clase food con sus atributos ((MODELO))
+*/*************************
+***************************
+export class Food{
+  id!:string;
+  name!:string;
+  price!:number;
+  tags?:string[];
+  favorite!:boolean;
+  stars!:number;
+  imageurl!:string;
+  origins!:string[];
+  cookTime!:string;
+
+}
+
+----La palabra clave  permite que esta clase se pueda importar
+ y utilizar en otros archivos de tu proyecto.
+---- es una propiedad obligatoria ( asegura que no será nula 
+ni indefinida al usarse)
+---- es una propiedad opcional ( indica que no es obligatorio
+ definirla)
+
+*************************
+*************************
+creando un servicio después de crear una carperta la cual tendrá los datos
+de los productos 
+
+$ ng g s service/food
+
+copmando para crear el servicio
+
+import { Injectable } from '@angular/core';
+import { Food } from '../share/models/Food';
+import { sample } from 'rxjs';
+import { sample_foods } from '../../data';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class FoodService {
+
+  constructor() { }
+
+  gatAll():Food[]{
+    return sample_foods;
+  }
+}
+****************************
+****************************
+creación componenete el cual tendrá los productos
+
+ng g c components/pages/home
+
+se agrega un arreglo para capturar los ítems de los produteocs
+
+export class HomeComponent {
+
+  foods:Food[] = []
+
+    constructor(private foodService:FoodService){
+    this.foods = foodService.gatAll();
+  }
+
+  ngOnInit(): void{
+
+  }
+
+}
+
+Angular que se ejecuta automáticamente cuando el componente se inicializa.
+ ----ngOnInit(): void{}
+
+
+********
+********
+16:39 video 5
+********
+********
