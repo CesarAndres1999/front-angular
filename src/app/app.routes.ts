@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './components/pages/home/home.component';
 import { FoodPageComponent } from './components/pages/food-page/food-page.component';
 import { CartPageComponent } from './components/pages/cart-page/cart-page.component';
+import { NotFoundComponent } from './components/partials/not-found/not-found.component';
 
 export const routes: Routes = [
     {path:'',component:HomeComponent},

@@ -5,10 +5,11 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { SearchComponent } from "../../partials/search/search.component";
 import { TagsComponent } from "../../partials/tags/tags.component";
+import { NotFoundComponent } from '../../partials/not-found/not-found.component';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterModule, CommonModule, SearchComponent, TagsComponent],
+  imports: [RouterModule, CommonModule, SearchComponent, TagsComponent,NotFoundComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -23,10 +24,10 @@ export class HomeComponent {
       else if(params.tag)
         this.foods=this.foodService.getAllFoodsByTag(params.tag);
       else
-        this.foods=foodService.getAll();
+        this.foods=this.foodService.getAll();
     })
-    this.foods = foodService.getAll();
   }
+
 
   ngOnInit(): void{
 
